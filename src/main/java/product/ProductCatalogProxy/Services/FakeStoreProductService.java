@@ -7,16 +7,18 @@ import product.ProductCatalogProxy.Clients.FakeStore.Client.FakeStoreAPIClient;
 import product.ProductCatalogProxy.Clients.FakeStore.Dtos.FakeStoreProductDTO;
 import product.ProductCatalogProxy.Models.Category;
 import product.ProductCatalogProxy.Models.Product;
+import product.ProductCatalogProxy.Repository.ProductRepo;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Service
+
 public class FakeStoreProductService implements IProductService {
 
     private final RestTemplateBuilder restTemplateBuilder;
     private final FakeStoreAPIClient fakeStoreAPIClient;
+
 
     public FakeStoreProductService(RestTemplateBuilder restTemplateBuilder,FakeStoreAPIClient fakeStoreAPIClient){
         this.restTemplateBuilder=restTemplateBuilder;
@@ -41,7 +43,6 @@ public class FakeStoreProductService implements IProductService {
         return convertToProduct(fakeStoreAPIClient.getProduct(productId));
     }
 
-
     @Override
     public Product createProduct(Product product){
         /*
@@ -56,8 +57,6 @@ public class FakeStoreProductService implements IProductService {
         FakeStoreProductDTO fakeStoreProductDTO=getFakeStoreProductDTOFromProduct(product);
         FakeStoreProductDTO responseFakeStoreProductDTO=fakeStoreAPIClient.createProduct(fakeStoreProductDTO);
         return convertToProduct(responseFakeStoreProductDTO);
-
-
 
     }
 

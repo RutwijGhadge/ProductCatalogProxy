@@ -76,7 +76,8 @@ public class ProductController {
         //conversion of class ProductDTO to Product
     }
 
-/*    @ExceptionHandler({IllegalArgumentException.class,NullPointerException.class})
+/*
+  @ExceptionHandler({IllegalArgumentException.class,NullPointerException.class})
     private ResponseEntity<String> handleException(){
         return new ResponseEntity<>("Id Value id Negative",HttpStatus.INTERNAL_SERVER_ERROR);
     }*/
